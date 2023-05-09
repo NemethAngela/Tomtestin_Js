@@ -9,13 +9,14 @@ const state = {
     index: 0
 };
 
-window.addEventListener('load', () => {}) {
+window.addEventListener('load', () => {
     init();
-};
+});
 
 function init() {       //eseménykezelő
     doc.calcButton.addEventListener('click',  () => {
         console.log('működik')
+        startCalc();
     });
 }
 
@@ -24,7 +25,6 @@ function startCalc() {
     let height = doc.heightInput.value; 
     state.index = calcBodyIndex(weight, height);
     doc.indexInput.value = state.index;
-
 }
 
 function calcBodyIndex(weight, height) {    //testtömegindex számítása
