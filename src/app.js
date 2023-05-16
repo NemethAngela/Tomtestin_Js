@@ -14,14 +14,15 @@ window.addEventListener('load', () => {
 });
 
 function init() {       //eseménykezelő
+    if (document.calcButton) {
     doc.calcButton.addEventListener('click',  () => {
         console.log('működik')
         startCalc();
-    });
+    }};}
 }
 
 function startCalc() {
-    let weight = doc.weightInput.value;      //változóba tároljujk
+    let weight = doc.weightInput.value;      //változóba tároljuk
     let height = doc.heightInput.value; 
     state.index = calcBodyIndex(weight, height);
     doc.indexInput.value = state.index;
@@ -29,4 +30,9 @@ function startCalc() {
 
 function calcBodyIndex(weight, height) {    //testtömegindex számítása
     return weight / Math.pow(height, 2);
+}
+
+function checkInput(input) {
+    let inputStr = String(input);
+    return inputStr.match(/^[0-9.]+$/);    // ezzel térünk vissza, a 0-9. a pont az jelenti, hogy elfogad pontot is nulla és kilenc között
 }
