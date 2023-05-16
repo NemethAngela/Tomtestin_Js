@@ -18,7 +18,8 @@ function init() {       //eseménykezelő
     doc.calcButton.addEventListener('click',  () => {
         console.log('működik')
         startCalc();
-    }};}
+    });}
+    //checkInput(30);
 }
 
 function startCalc() {
@@ -34,5 +35,16 @@ function calcBodyIndex(weight, height) {    //testtömegindex számítása
 
 function checkInput(input) {
     let inputStr = String(input);
-    return inputStr.match(/^[0-9.]+$/);    // ezzel térünk vissza, a 0-9. a pont az jelenti, hogy elfogad pontot is nulla és kilenc között
+    let inputNum = Number(input);
+    //return inputStr.match(/^[0-9.]+$/);    // ezzel térünk vissza, a 0-9. a pont az jelenti, hogy elfogad pontot is nulla és kilenc között
+    if (inputStr.match(/^[0-9.]+$/)) {
+        if(inputNum > 0) {
+            return true;
+        } else {
+        return false;
+        }
+    } else {
+        return false;
+    }
+   
 }
